@@ -34,29 +34,44 @@ export const LOCATION_SHORT = "Naples & Fort Myers";
 // All images sourced from marshcovedental.com and fixasmileguide.com/rosydental/
 
 export const ASSETS = {
-  // Marsh Cove branding
-  logo: "https://marshcovedental.com/wp-content/uploads/logo-color-green_marsh-cove-dental.png",
+  // Marsh Cove branding — all assets hosted locally via /manus-storage/
+  logo:               "/manus-storage/logo_042673ea.png",
+  footerLogo:         "/manus-storage/footer-logo_492d72c3.png",
+  favicon:            "/manus-storage/favicon-32_40ca03f3.png",
 
-  // Hero video background (from Rosy Dental SmileNow — dental implant 3D animation)
-  heroVideo: "https://www.fixasmileguide.com/rosydental/public/video/hero-bg.mp4",
+  // Hero video — local copy of dental implant 3D animation
+  heroVideo:          "/manus-storage/hero-bg_233527af.mp4",
 
-  // Doctor photo — Marsh Cove Drs. Titov
-  doctorCouple: "https://marshcovedental.com/wp-content/uploads/marsh-cove-dental-implant-center_doctors-titov.jpg",
-  doctorWithPatient: "https://marshcovedental.com/wp-content/uploads/drs-titov-and-patient_dental-implants-after_marsh-cove-dental.jpg",
+  // Doctor photos — Marsh Cove Drs. Titov
+  doctorCouple:       "/manus-storage/doctor-couple_7c845dd7.jpg",
+  doctorWithPatient:  "/manus-storage/doctor-with-patient_324ae546.jpg",
+  doctorKathleen:     "/manus-storage/doctor-kathleen_92da961a.jpg",
 
-  // Patient stock photos (from Rosy Dental — diverse adults 50+)
-  patientCouple: "https://www.fixasmileguide.com/rosydental/public/images/stock/patient-diverse-couple-50s.jpg",
-  patientBlackMan: "https://www.fixasmileguide.com/rosydental/public/images/stock/patient-black-man-55.jpg",
-  patientHispanicWoman: "https://www.fixasmileguide.com/rosydental/public/images/stock/patient-hispanic-woman-50.jpg",
-  patientAsianWoman: "https://www.fixasmileguide.com/rosydental/public/images/stock/patient-asian-woman-55.jpg",
-  patientWhiteWoman: "https://www.fixasmileguide.com/rosydental/public/images/stock/patient-white-woman-silver.jpg",
+  // Patient photos — diverse adults 50+
+  patientCouple:         "/manus-storage/patient-couple_13afa35e.jpg",
+  patientBlackMan:       "/manus-storage/patient-black-man_a1bf40cf.jpg",
+  patientHispanicWoman:  "/manus-storage/patient-hispanic-woman_b95734c1.jpg",
+  patientAsianWoman:     "/manus-storage/patient-asian-woman_ec762db0.jpg",
+  patientWhiteWoman:     "/manus-storage/patient-white-woman_7205c2ee.jpg",
 
-  // Before/after photos (from Rosy Dental)
-  baZirconiaFull: "https://www.fixasmileguide.com/rosydental/public/images/before-after/bn-zirconia-full.jpg",
-  baPmmaFull: "https://www.fixasmileguide.com/rosydental/public/images/before-after/bu-pmma-full.jpg",
-  baPmma: "https://www.fixasmileguide.com/rosydental/public/images/before-after/ct-pmma.jpg",
-  baZirconiaCloseup: "https://www.fixasmileguide.com/rosydental/public/images/before-after/bn-zirconia-closeup.jpg",
-  baIonaPmma: "https://www.fixasmileguide.com/rosydental/public/images/before-after/iona-pmma-a.jpg",
+  // Implant type images — from marshcovedental.com/what-are-dental-implants/
+  implantSingle:      "/manus-storage/implant-single_d24aeea4.jpg",
+  implantFullArch:    "/manus-storage/implant-full-arch_f6a6d2ff.jpg",
+  implantXrayDoctors: "/manus-storage/implant-xray-doctors_33a37ce2.jpg",
+
+  // Before/after photos — real Marsh Cove patients from marshcovedental.com/before-after-gallery/
+  baDeborah:  "/manus-storage/ba-deborah_cc38c6bb.jpg",
+  baJim:      "/manus-storage/ba-jim_334be8da.jpg",
+  baBob:      "/manus-storage/ba-bob_2ac18424.jpg",
+  baLinda:    "/manus-storage/ba-linda_0071c139.jpg",
+  baDonna:    "/manus-storage/ba-donna_9448d036.jpg",
+  baGrant:    "/manus-storage/ba-grant_50bbe684.jpg",
+  baSarah:    "/manus-storage/ba-sarah_09536ae8.jpg",
+  baAntonio:  "/manus-storage/ba-antonio_8cafdd91.jpg",
+  baClinton:  "/manus-storage/ba-clinton_9bd43a30.jpg",
+  baPaul:     "/manus-storage/ba-paul_9948f317.jpg",
+  baRandy:    "/manus-storage/ba-randy_fdbfeaf8.jpg",
+  baMatthew:  "/manus-storage/ba-matthew_acc82ad8.jpg",
 };
 
 // ─── SURVEY IDs ───────────────────────────────────────────────────────────────
@@ -362,14 +377,81 @@ export function SmileNowLifeTransformed({ onCtaClick }: { onCtaClick: () => void
   );
 }
 
+// ─── CANDIDACY ICONS ──────────────────────────────────────────────────────────
+
+function IconLooseTeeth() {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Tooth outline */}
+      <path d="M16 8C12 8 9 11 9 15c0 3 1.5 5.5 2.5 8.5C12.5 27 13 32 14 38c.4 2.5 1.5 4 3 4s2.2-1.5 3-4l1-5c.3-1.5.7-1.5 1 0l1 5c.8 2.5 1.5 4 3 4s2.6-1.5 3-4c1-6 1.5-11 2.5-14.5C32.5 20.5 34 18 34 15c0-4-3-7-7-7-1.8 0-3.4.7-4.5 1.8A5.5 5.5 0 0016 8z" stroke="#0ABFBC" strokeWidth="2.2" strokeLinejoin="round" fill="rgba(10,191,188,0.12)"/>
+      {/* Crack lines indicating looseness */}
+      <path d="M22 14l-1.5 4 2 1-1.5 4" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* Motion lines */}
+      <path d="M8 20l-3 0M7 16l-2.5-1.5M7 24l-2.5 1.5" stroke="#0ABFBC" strokeWidth="1.8" strokeLinecap="round" opacity="0.7"/>
+    </svg>
+  );
+}
+
+function IconPeriodontal() {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Gum line */}
+      <path d="M8 28 Q14 20 20 26 Q26 32 32 24 Q38 16 42 22" stroke="#0ABFBC" strokeWidth="2.2" strokeLinecap="round" fill="none"/>
+      {/* Tooth 1 */}
+      <rect x="12" y="14" width="8" height="14" rx="2" stroke="rgba(255,255,255,0.8)" strokeWidth="2" fill="rgba(255,255,255,0.08)"/>
+      {/* Tooth 2 — receded, lower */}
+      <rect x="22" y="17" width="8" height="11" rx="2" stroke="rgba(255,255,255,0.5)" strokeWidth="2" fill="rgba(255,255,255,0.05)" strokeDasharray="3 2"/>
+      {/* Tooth 3 */}
+      <rect x="32" y="12" width="7" height="13" rx="2" stroke="rgba(255,255,255,0.8)" strokeWidth="2" fill="rgba(255,255,255,0.08)"/>
+      {/* Inflammation dots */}
+      <circle cx="20" cy="30" r="2.5" fill="#0ABFBC" opacity="0.8"/>
+      <circle cx="26" cy="34" r="2" fill="#0ABFBC" opacity="0.6"/>
+      <circle cx="32" cy="30" r="2.5" fill="#0ABFBC" opacity="0.8"/>
+    </svg>
+  );
+}
+
+function IconBoneLoss() {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Jaw bone outline */}
+      <path d="M10 14 Q10 8 16 8 L32 8 Q38 8 38 14 L38 32 Q38 40 24 40 Q10 40 10 32 Z" stroke="#0ABFBC" strokeWidth="2.2" fill="rgba(10,191,188,0.10)" strokeLinejoin="round"/>
+      {/* Implant post */}
+      <rect x="22" y="10" width="4" height="18" rx="2" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5"/>
+      {/* Bone loss gaps — dotted areas */}
+      <path d="M14 20 Q18 16 14 12" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2"/>
+      <path d="M34 20 Q30 16 34 12" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2"/>
+      {/* Downward arrows showing bone loss */}
+      <path d="M14 34 l0 4 m-2-2 l2 2 2-2" stroke="#0ABFBC" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
+      <path d="M34 34 l0 4 m-2-2 l2 2 2-2" stroke="#0ABFBC" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" opacity="0.8"/>
+    </svg>
+  );
+}
+
+function IconDentures() {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Denture plate */}
+      <path d="M8 22 Q8 14 24 14 Q40 14 40 22 L40 26 Q40 32 24 32 Q8 32 8 26 Z" stroke="#0ABFBC" strokeWidth="2.2" fill="rgba(10,191,188,0.12)" strokeLinejoin="round"/>
+      {/* Teeth on denture */}
+      <rect x="12" y="16" width="5" height="10" rx="1.5" fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.4)" strokeWidth="1"/>
+      <rect x="19" y="15" width="5" height="11" rx="1.5" fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.4)" strokeWidth="1"/>
+      <rect x="26" y="15" width="5" height="11" rx="1.5" fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.4)" strokeWidth="1"/>
+      <rect x="33" y="16" width="5" height="10" rx="1.5" fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.4)" strokeWidth="1"/>
+      {/* Discomfort wavy line below */}
+      <path d="M12 36 Q16 34 20 36 Q24 38 28 36 Q32 34 36 36" stroke="#0ABFBC" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.7"/>
+    </svg>
+  );
+}
+
 // ─── CANDIDACY SECTION ────────────────────────────────────────────────────────
 
 export function SmileNowCandidacy({ onCtaClick }: { onCtaClick: () => void }) {
   const cards = [
-    { emoji: "🦷", title: "Loose or Missing Teeth", desc: "You are currently dealing with loose, damaged, or missing teeth" },
-    { emoji: "🩺", title: "Periodontal Disease", desc: "You suffer from moderate to severe periodontal disease" },
-    { emoji: "🦴", title: "Bone Loss", desc: "You have experienced bone loss in your jaw" },
-    { emoji: "😬", title: "Dentures or Partials", desc: "You are currently wearing a denture or partial that is uncomfortable" },
+    { icon: <IconLooseTeeth />, title: "Loose or Missing Teeth", desc: "You are currently dealing with loose, damaged, or missing teeth" },
+    { icon: <IconPeriodontal />, title: "Periodontal Disease", desc: "You suffer from moderate to severe periodontal disease" },
+    { icon: <IconBoneLoss />, title: "Bone Loss", desc: "You have experienced bone loss in your jaw" },
+    { icon: <IconDentures />, title: "Dentures or Partials", desc: "You are currently wearing a denture or partial that is uncomfortable" },
   ];
 
   return (
@@ -380,9 +462,11 @@ export function SmileNowCandidacy({ onCtaClick }: { onCtaClick: () => void }) {
           <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", color: "white", lineHeight: 1.15, margin: 0 }}>Who Is a Candidate?</h2>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px", marginBottom: "40px" }}>
-          {cards.map(({ emoji, title, desc }) => (
-            <div key={title} style={{ backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "12px", padding: "28px 20px", textAlign: "center", border: "1px solid rgba(255,255,255,0.08)" }}>
-              <div style={{ fontSize: "2.2rem", marginBottom: "14px" }}>{emoji}</div>
+          {cards.map(({ icon, title, desc }) => (
+            <div key={title} style={{ backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "12px", padding: "32px 24px", textAlign: "center", border: "1px solid rgba(10,191,188,0.18)", transition: "border-color 0.2s" }}>
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "72px", height: "72px", borderRadius: "50%", backgroundColor: "rgba(10,191,188,0.10)", border: "1.5px solid rgba(10,191,188,0.25)", margin: "0 auto 20px" }}>
+                {icon}
+              </div>
               <h3 style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "0.95rem", color: "white", margin: "0 0 10px" }}>{title}</h3>
               <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.82rem", color: C.textDarkMuted, lineHeight: 1.6, margin: 0 }}>{desc}</p>
             </div>
@@ -406,31 +490,31 @@ export function SmileNowCandidacy({ onCtaClick }: { onCtaClick: () => void }) {
 export function SmileNowTreatmentOptions({ onCtaClick }: { onCtaClick: () => void }) {
   const options = [
     {
-      img: ASSETS.patientBlackMan,
-      alt: "Patient after single dental implant",
+      img: ASSETS.implantSingle,
+      alt: "Patient Angie after single dental implant at Marsh Cove Dental",
       title: "Single Dental Implant",
-      desc: "Replace one missing tooth with a permanent, natural-looking implant and crown. Looks and functions just like a natural tooth.",
+      desc: "Replace one missing tooth with a titanium post and natural-looking crown. Dental implants have a success rate as high as 99% when placed by Dr. Titov.",
       popular: false,
     },
     {
-      img: ASSETS.patientHispanicWoman,
-      alt: "Patient after multi-implant bridge",
-      title: "Multi-Implant Bridge",
-      desc: "For those missing several teeth — incredibly strong, permanent, and designed to preserve your bone.",
+      img: ASSETS.implantXrayDoctors,
+      alt: "Drs. Titov reviewing full mouth dental implant X-ray",
+      title: "Implant Supported Bridge",
+      desc: "Replace several missing teeth without modifying healthy adjacent teeth. Preserves bone and prevents the shifting that traditional bridges allow.",
       popular: false,
     },
     {
-      img: ASSETS.patientAsianWoman,
-      alt: "Patient after full fixed set of teeth",
-      title: "Full Fixed Set of Teeth",
-      desc: "A permanent full-arch solution using 4 to 6 implants. Same-day available. Chip and stain resistant.",
+      img: ASSETS.implantFullArch,
+      alt: "Full mouth dental implants full arch result",
+      title: "Full Mouth Dental Implants",
+      desc: "Fully restore dental function and aesthetics with All-on-4 to 6, All-on-X, or Teeth Today. Same-day available. The only solution that prevents bone loss.",
       popular: true,
     },
     {
-      img: ASSETS.patientWhiteWoman,
-      alt: "Patient after implant stabilized overdentures",
-      title: "Implant Stabilized Overdentures",
-      desc: "A cost-effective alternative to traditional dentures. Snaps into place over 2 to 4 implants.",
+      img: ASSETS.doctorKathleen,
+      alt: "Dr. Titov with patient Kathleen after full mouth dental implants",
+      title: "Implant Supported Dentures",
+      desc: "Snap-in dentures stabilized over 2 to 4 implants eliminate slipping and discomfort. Prevents the 25% bone loss that occurs in the first year after tooth loss.",
       popular: false,
     },
   ];
@@ -476,9 +560,12 @@ export function SmileNowTreatmentOptions({ onCtaClick }: { onCtaClick: () => voi
 
 export function SmileNowBeforeAfter({ onCtaClick }: { onCtaClick: () => void }) {
   const transformations = [
-    { img: ASSETS.baZirconiaFull, label: "Zirconia Full Arch Transformation", sub: "Actual Marsh Cove Patient" },
-    { img: ASSETS.baPmmaFull, label: "PMMA Full Arch Restoration", sub: "Actual Marsh Cove Patient" },
-    { img: ASSETS.baPmma, label: "Full Smile Transformation", sub: "Actual Marsh Cove Patient" },
+    { img: ASSETS.baDeborah, label: "Deborah's Full Arch Transformation", sub: "Actual Marsh Cove Patient" },
+    { img: ASSETS.baJim, label: "Jim's Full Smile Restoration", sub: "Actual Marsh Cove Patient" },
+    { img: ASSETS.baBob, label: "Bob's Complete Smile Makeover", sub: "Actual Marsh Cove Patient" },
+    { img: ASSETS.baLinda, label: "Linda's Life-Changing Results", sub: "Actual Marsh Cove Patient" },
+    { img: ASSETS.baDonna, label: "Donna's Full Arch Implants", sub: "Actual Marsh Cove Patient" },
+    { img: ASSETS.baGrant, label: "Grant's Smile Transformation", sub: "Actual Marsh Cove Patient" },
   ];
 
   return (
