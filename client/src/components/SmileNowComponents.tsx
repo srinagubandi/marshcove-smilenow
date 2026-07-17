@@ -650,19 +650,29 @@ export function SmileNowDoctor({ onCtaClick }: { onCtaClick: () => void }) {
 
 const REVIEWS = [
   {
-    name: "Sandra M.",
-    location: "Naples, FL",
-    text: "I am so glad I chose Marsh Cove Dental and Dr. Titov for my implants. I've thought about it for so long and finally made the decision. I'm not embarrassed to smile now. Dr. Titov has a fabulous team. You won't regret it.",
-  },
-  {
-    name: "Robert K.",
+    name: "Theresia M.",
     location: "Fort Myers, FL",
-    text: "Dr. Titov and his team were so out of the ordinary excellent at what they do. From the minute I walked in the door I was treated with respect. Within a month I went from new patient to fully satisfied. They made me feel like part of their family.",
+    text: "From the moment I arrived for my initial appointment I immediately knew that I had chosen the right implant center. All of the staff have been very supportive and helpful in answering my questions and concerns. I'm having my final permanent implants put in mid July. The entire process has gone smoothly and I'm extremely happy with the results so far.",
   },
   {
-    name: "Patricia L.",
+    name: "Shanice B.",
     location: "Naples, FL",
-    text: "Dr. Titov is my favorite dentist. He is so nice and friendly and tells you what you need with honesty. The office is really nice and I am just glad that I found a responsible and caring doctor!",
+    text: "The best dental office in town! Our family gets all our services done here. They did my mother's implants and she has not stopped smiling since. Her confidence grew significantly. The staff is amazing and treats us like family. We look forward to every visit.",
+  },
+  {
+    name: "Dionne P.",
+    location: "Naples, FL",
+    text: "I am actually terrified of dentists and even the slightest bit of work. But they made me feel comfortable, and after the whole implant procedure, it has made absolutely all the difference in the world. The staff was very professional and kind — I would recommend this dental office to anyone.",
+  },
+  {
+    name: "Linda P.",
+    location: "Naples, FL",
+    text: "I would highly recommend Marsh Cove Dental and Implant Center. I felt comfortable through the whole process. The staff is friendly, knowledgeable and work well together. Dr. T was easy to talk to. I'm blessed to have found the office in Naples.",
+  },
+  {
+    name: "Pam C.",
+    location: "Bonita Springs, FL",
+    text: "After interviewing many places in Bonita and Naples I chose Marsh Cove Dental. I am so grateful and thankful to Dr. Titov and his staff for my beautiful new smile!! I love everything about this place — from the first interview with David to my ongoing appointments.",
   },
 ];
 
