@@ -184,7 +184,7 @@ export function SmileNowHero({
   ];
 
   return (
-    <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", backgroundColor: C.darkBg }}>
+    <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "flex-start", justifyContent: "center", overflow: "hidden", backgroundColor: C.darkBg }}>
       {/* Video background */}
       <video
         autoPlay
