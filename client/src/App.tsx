@@ -17,6 +17,7 @@
  */
 
 import { Route, Switch } from "wouter";
+import { MOBILE_STYLES } from "./components/SmileNowComponents";
 
 // ── SmileNow v2 Landing Pages ──
 import LPGoogleFreeConsult from "./pages/LPGoogleFreeConsult";
@@ -49,7 +50,9 @@ function NotFound() {
 
 export default function App() {
   return (
-    <Switch>
+    <>
+      <style>{MOBILE_STYLES}</style>
+      <Switch>
       {/* Campaign Hub */}
       <Route path="/" component={CampaignHub} />
       <Route path="/marshcove/smilenow" component={CampaignHub} />
@@ -82,5 +85,6 @@ export default function App() {
       {/* Fallback */}
       <Route component={NotFound} />
     </Switch>
+    </>
   );
 }

@@ -20,6 +20,32 @@
  */
 
 import { useState, useEffect } from "react";
+
+// ─── GLOBAL MOBILE RESPONSIVE STYLES ─────────────────────────────────────────
+// Injected once via a <style> tag in the root layout
+export const MOBILE_STYLES = `
+  @media (max-width: 768px) {
+    .sn-grid-2col { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .sn-grid-4col { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+    .sn-grid-3col { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .sn-doctor-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .sn-section { padding: 52px 16px !important; }
+    .sn-hero-content { padding: 100px 16px 48px !important; }
+    .sn-hero-logo { width: 200px !important; }
+    .sn-hero-h1 { font-size: 2rem !important; }
+    .sn-cta-row { flex-direction: column !important; align-items: stretch !important; }
+    .sn-cta-row a, .sn-cta-row button { text-align: center !important; justify-content: center !important; }
+    .sn-nav-phone { display: none !important; }
+    .sn-footer-inner { flex-direction: column !important; align-items: center !important; text-align: center !important; }
+    .sn-doctor-photo { height: 300px !important; }
+    .sn-ba-img { height: 220px !important; }
+  }
+  @media (max-width: 480px) {
+    .sn-grid-4col { grid-template-columns: 1fr !important; }
+    .sn-trust-badges { gap: 10px !important; }
+    .sn-trust-badges span { font-size: 0.72rem !important; }
+  }
+`;
 import { Phone, CheckCircle, ChevronDown, ChevronUp, Shield, Star, Clock, Award, Users, MapPin } from "lucide-react";
 
 // ─── CONSTANTS ────────────────────────────────────────────────────────────────
@@ -133,7 +159,7 @@ export function SmileNowNav({ onCtaClick }: { onCtaClick: () => void }) {
   return (
     <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "rgba(13,43,43,0.96)", backdropFilter: "blur(8px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 20px", height: "56px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        {/* Logo */}
+        {/* Logo — white inverted in nav */}
         <img
           src={ASSETS.logo}
           alt="Marsh Cove Dental & Implant Center"
@@ -143,8 +169,8 @@ export function SmileNowNav({ onCtaClick }: { onCtaClick: () => void }) {
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <a
             href={PHONE_HREF}
+            className="sn-nav-phone"
             style={{ color: "white", fontFamily: "Inter, sans-serif", fontSize: "0.82rem", fontWeight: 600, textDecoration: "none", display: "flex", alignItems: "center", gap: "6px", opacity: 0.9 }}
-            className="hidden sm:flex"
           >
             <Phone size={14} style={{ color: C.teal }} />
             {PHONE_DISPLAY}
@@ -194,20 +220,23 @@ export function SmileNowHero({
         <source src={ASSETS.heroVideo} type="video/mp4" />
       </video>
       {/* Dark overlay */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(13,43,43,0.55) 0%, rgba(13,43,43,0.75) 100%)" }} />
-
-      {/* Phone — top right */}
-      <a
-        href={PHONE_HREF}
-        style={{ position: "absolute", top: "72px", right: "20px", zIndex: 10, color: "white", fontFamily: "Inter, sans-serif", fontSize: "0.85rem", fontWeight: 700, textDecoration: "none", backgroundColor: "rgba(255,255,255,0.12)", padding: "8px 14px", borderRadius: "6px", border: "1px solid rgba(255,255,255,0.2)", backdropFilter: "blur(4px)" }}
-      >
-        {PHONE_DISPLAY}
-      </a>
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(13,43,43,0.60) 0%, rgba(13,43,43,0.80) 100%)" }} />
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 5, textAlign: "center", padding: "120px 20px 60px", maxWidth: "800px", margin: "0 auto" }}>
+      <div className="sn-hero-content" style={{ position: "relative", zIndex: 5, textAlign: "center", padding: "120px 24px 64px", maxWidth: "820px", margin: "0 auto", width: "100%" }}>
+
+        {/* Large color logo — top of hero, above location */}
+        <div style={{ marginBottom: "28px" }}>
+          <img
+            src="/assets/logo-color.webp"
+            alt="Marsh Cove Dental & Implant Center"
+            className="sn-hero-logo"
+            style={{ width: "260px", maxWidth: "80vw", objectFit: "contain", filter: "drop-shadow(0 2px 12px rgba(0,0,0,0.45))" }}
+          />
+        </div>
+
         {/* Location line */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "24px" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "28px" }}>
           <div style={{ height: "1px", width: "40px", backgroundColor: C.teal, opacity: 0.6 }} />
           <span style={{ fontFamily: "Inter, sans-serif", fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: C.teal }}>
             {LOCATION}
@@ -216,36 +245,36 @@ export function SmileNowHero({
         </div>
 
         {/* H1 */}
-        <h1 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: "clamp(2.2rem, 6vw, 4rem)", color: "white", lineHeight: 1.1, margin: "0 0 16px", textTransform: "uppercase", letterSpacing: "-0.01em" }}>
+        <h1 className="sn-hero-h1" style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: "clamp(2.2rem, 6vw, 4rem)", color: "white", lineHeight: 1.1, margin: "0 0 16px", textTransform: "uppercase", letterSpacing: "-0.01em" }}>
           {headline}
         </h1>
 
         {/* Subheadline */}
         {subheadline && (
-          <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(0.95rem, 2vw, 1.15rem)", color: "rgba(255,255,255,0.80)", margin: "0 0 36px", lineHeight: 1.5 }}>
+          <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(0.95rem, 2vw, 1.15rem)", color: "rgba(255,255,255,0.80)", margin: "0 0 40px", lineHeight: 1.5 }}>
             {subheadline}
           </p>
         )}
 
-        {/* CTA Buttons */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", justifyContent: "center", marginBottom: "40px" }}>
+        {/* CTA Buttons — centered with generous spacing */}
+        <div className="sn-cta-row" style={{ display: "flex", flexWrap: "wrap", gap: "32px", justifyContent: "center", alignItems: "center", marginBottom: "40px" }}>
           <button
             onClick={onCtaClick}
-            style={{ backgroundColor: C.green, color: "white", fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: "1rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "16px 36px", borderRadius: "6px", border: "none", cursor: "pointer", boxShadow: "0 4px 24px rgba(26,107,58,0.5)" }}
+            style={{ backgroundColor: C.green, color: "white", fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: "1rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "18px 40px", borderRadius: "6px", border: "none", cursor: "pointer", boxShadow: "0 4px 24px rgba(26,107,58,0.5)", minWidth: "220px" }}
           >
             {ctaText}
           </button>
           <a
             href={PHONE_HREF}
-            style={{ backgroundColor: "transparent", color: "white", fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "1rem", letterSpacing: "0.04em", textTransform: "uppercase", padding: "16px 28px", borderRadius: "6px", border: "2px solid rgba(255,255,255,0.5)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "8px" }}
+            style={{ backgroundColor: "rgba(255,255,255,0.10)", color: "white", fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "1.05rem", letterSpacing: "0.04em", padding: "18px 32px", borderRadius: "6px", border: "2px solid rgba(255,255,255,0.45)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "10px", minWidth: "220px", justifyContent: "center", backdropFilter: "blur(4px)" }}
           >
-            <Phone size={16} />
+            <Phone size={18} />
             {PHONE_DISPLAY}
           </a>
         </div>
 
         {/* Trust badges */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
+        <div className="sn-trust-badges" style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
           {trustBadges.map(badge => (
             <div key={badge} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
               <CheckCircle size={14} style={{ color: C.teal, flexShrink: 0 }} />
@@ -279,7 +308,7 @@ export function SmileNowIntro({
 }) {
   return (
     <section style={{ backgroundColor: C.darkBg, padding: "80px 20px" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }}>
+        <div className="sn-grid-2col" style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }}>
         {/* Left: copy */}
         <div>
           <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: C.teal, margin: "0 0 12px" }}>{sectionLabel}</p>
@@ -334,7 +363,7 @@ export function SmileNowLifeTransformed({ onCtaClick }: { onCtaClick: () => void
 
   return (
     <section style={{ backgroundColor: C.lightBg, padding: "80px 20px" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "center" }}>
+      <div className="sn-grid-2col" style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "center" }}>
         {/* Left: copy */}
         <div>
           <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: C.teal, margin: "0 0 12px" }}>Results That Last</p>
@@ -457,7 +486,7 @@ export function SmileNowCandidacy({ onCtaClick }: { onCtaClick: () => void }) {
           <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: C.teal, margin: "0 0 12px" }}>Candidacy</p>
           <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", color: "white", lineHeight: 1.15, margin: 0 }}>Who Is a Candidate?</h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px", marginBottom: "40px" }}>
+        <div className="sn-grid-4col" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px", marginBottom: "40px" }}>
           {cards.map(({ icon, title, desc }) => (
             <div key={title} style={{ backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "12px", padding: "32px 24px", textAlign: "center", border: "1px solid rgba(10,191,188,0.18)", transition: "border-color 0.2s" }}>
               <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "72px", height: "72px", borderRadius: "50%", backgroundColor: "rgba(10,191,188,0.10)", border: "1.5px solid rgba(10,191,188,0.25)", margin: "0 auto 20px" }}>
@@ -523,7 +552,7 @@ export function SmileNowTreatmentOptions({ onCtaClick }: { onCtaClick: () => voi
           <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", color: C.textLight, lineHeight: 1.15, margin: "0 0 12px" }}>The Right Solution for Every Smile</h2>
           <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.95rem", color: C.textMuted, margin: 0 }}>Explore our dental implant options, using the latest technology to restore your smile beautifully and functionally.</p>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "24px" }}>
+        <div className="sn-grid-4col" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "24px" }}>
           {options.map(({ img, alt, title, desc, popular }) => (
             <div key={title} style={{ backgroundColor: "white", borderRadius: "12px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", border: popular ? `2px solid ${C.teal}` : "2px solid transparent", position: "relative", display: "flex", flexDirection: "column" }}>
               {popular && (
@@ -571,7 +600,7 @@ export function SmileNowBeforeAfter({ onCtaClick }: { onCtaClick: () => void }) 
           <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: C.teal, margin: "0 0 12px" }}>Transformations</p>
           <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", color: "white", lineHeight: 1.15, margin: 0 }}>Real Patient Results</h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", marginBottom: "40px" }}>
+        <div className="sn-grid-3col" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", marginBottom: "40px" }}>
           {transformations.map(({ img, label, sub }) => (
             <div key={label} style={{ borderRadius: "12px", overflow: "hidden" }}>
               <img src={img} alt={label} style={{ width: "100%", height: "280px", objectFit: "cover", objectPosition: "center top", display: "block" }} />
@@ -599,13 +628,13 @@ export function SmileNowDoctor({ onCtaClick }: { onCtaClick: () => void }) {
           <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: C.teal, margin: "0 0 12px" }}>Your Doctor</p>
           <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", color: C.textLight, lineHeight: 1.15, margin: 0 }}>Meet Your Implant Specialist</h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "400px 1fr", gap: "60px", alignItems: "flex-start" }}>
+        <div className="sn-doctor-grid" style={{ display: "grid", gridTemplateColumns: "400px 1fr", gap: "60px", alignItems: "flex-start" }}>
           {/* Photo */}
           <div style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 16px 48px rgba(0,0,0,0.12)" }}>
             <img
               src={ASSETS.doctorCouple}
               alt="Dr. Eugene Titov and Dr. Olga Titov — Marsh Cove Dental & Implant Center"
-              style={{ width: "100%", height: "460px", objectFit: "cover", objectPosition: "center top" }}
+              className="sn-doctor-photo" style={{ width: "100%", height: "460px", objectFit: "cover", objectPosition: "center top" }}
             />
           </div>
           {/* Info */}
@@ -674,7 +703,7 @@ export function SmileNowReviews() {
           <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: C.teal, margin: "0 0 12px" }}>Patient Stories</p>
           <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", color: "white", lineHeight: 1.15, margin: 0 }}>Real Patients, Real Results</h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
+        <div className="sn-grid-3col" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
           {REVIEWS.map(({ name, location, text }) => (
             <div key={name} style={{ backgroundColor: "rgba(255,255,255,0.06)", borderRadius: "12px", padding: "28px", border: "1px solid rgba(255,255,255,0.08)" }}>
               <div style={{ display: "flex", gap: "2px", marginBottom: "16px" }}>
@@ -705,7 +734,7 @@ export function SmileNowHowToStart({ surveyId, onCtaClick }: { surveyId: string;
 
   return (
     <section style={{ backgroundColor: C.lightBg, padding: "80px 20px" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }}>
+        <div className="sn-grid-2col" style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "start" }}>
         {/* Left: copy */}
         <div>
           <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: C.teal, margin: "0 0 12px" }}>How Do I Start?</p>
@@ -848,7 +877,7 @@ export function SmileNowFinalCTA({ headline, ctaText, onCtaClick }: { headline: 
 export function SmileNowFooter() {
   return (
     <footer style={{ backgroundColor: "#061818", padding: "32px 20px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "16px" }}>
+      <div className="sn-footer-inner" style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "16px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <img src={ASSETS.logo} alt="Marsh Cove Dental" style={{ height: "28px", objectFit: "contain", filter: "brightness(0) invert(1)", opacity: 0.7 }} />
         </div>
