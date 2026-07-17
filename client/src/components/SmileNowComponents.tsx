@@ -35,7 +35,7 @@ export const MOBILE_STYLES = `
     .sn-hero-h1 { font-size: 2rem !important; }
     .sn-cta-row { flex-direction: column !important; align-items: stretch !important; }
     .sn-cta-row a, .sn-cta-row button { text-align: center !important; justify-content: center !important; }
-    .sn-nav-phone { display: none !important; }
+    /* sn-nav-phone: always visible — phone must be clickable on mobile */
     .sn-footer-inner { flex-direction: column !important; align-items: center !important; text-align: center !important; }
     .sn-doctor-photo { height: 300px !important; }
     .sn-ba-img { height: 220px !important; }
@@ -163,8 +163,7 @@ export function SmileNowNav({ onCtaClick }: { onCtaClick: () => void }) {
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <a
             href={PHONE_HREF}
-            className="sn-nav-phone"
-            style={{ color: "white", fontFamily: "Inter, sans-serif", fontSize: "0.82rem", fontWeight: 600, textDecoration: "none", display: "flex", alignItems: "center", gap: "6px", opacity: 0.9 }}
+            style={{ color: "white", fontFamily: "Inter, sans-serif", fontSize: "0.82rem", fontWeight: 600, textDecoration: "none", display: "flex", alignItems: "center", gap: "6px", opacity: 0.9, whiteSpace: "nowrap" }}
           >
             <Phone size={14} style={{ color: C.teal }} />
             {PHONE_DISPLAY}
