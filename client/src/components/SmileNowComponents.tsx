@@ -34,44 +34,49 @@ export const LOCATION_SHORT = "Naples & Fort Myers";
 // All images sourced from marshcovedental.com and fixasmileguide.com/rosydental/
 
 export const ASSETS = {
-  // Marsh Cove branding — all assets hosted locally via /manus-storage/
-  logo:               "/manus-storage/logo_042673ea.png",
-  footerLogo:         "/manus-storage/footer-logo_492d72c3.png",
-  favicon:            "/manus-storage/favicon-32_40ca03f3.png",
+  // Marsh Cove branding — all assets served locally from /assets/ (client/public/assets/)
+  logo:               "/assets/logo.webp",
+  footerLogo:         "/assets/logo.webp",
+  favicon:            "/assets/favicon-32.png",
 
-  // Hero video — local copy of dental implant 3D animation
-  heroVideo:          "/manus-storage/hero-bg_233527af.mp4",
+  // Hero video — local copy served from client/public/assets/
+  heroVideo:          "/assets/hero-bg.mp4",
 
-  // Doctor photos — Marsh Cove Drs. Titov
-  doctorCouple:       "/manus-storage/doctor-couple_7c845dd7.jpg",
-  doctorWithPatient:  "/manus-storage/doctor-with-patient_324ae546.jpg",
-  doctorKathleen:     "/manus-storage/doctor-kathleen_92da961a.jpg",
+  // Hero fallback images (used as poster on video)
+  heroConsult:        "/assets/hero-consult.jpg",
+  heroFinancing:      "/assets/hero-financing.jpg",
+  heroSameDay:        "/assets/hero-same-day.jpg",
 
-  // Patient photos — diverse adults 50+
-  patientCouple:         "/manus-storage/patient-couple_13afa35e.jpg",
-  patientBlackMan:       "/manus-storage/patient-black-man_a1bf40cf.jpg",
-  patientHispanicWoman:  "/manus-storage/patient-hispanic-woman_b95734c1.jpg",
-  patientAsianWoman:     "/manus-storage/patient-asian-woman_ec762db0.jpg",
-  patientWhiteWoman:     "/manus-storage/patient-white-woman_7205c2ee.jpg",
+  // Doctor photos — Marsh Cove Drs. Titov (from marshcovedental.com)
+  doctorCouple:       "/assets/doctor-couple.jpg",
+  doctorWithPatient:  "/assets/doctor-with-patient.jpg",
+  doctorKathleen:     "/assets/doctor-patient-after.jpg",
+
+  // Patient photos — diverse adults 50+ (from marshcovedental.com)
+  patientCouple:         "/assets/doctor-with-patient.jpg",
+  patientBlackMan:       "/assets/ba-corrado.jpg",
+  patientHispanicWoman:  "/assets/ba-donna.jpg",
+  patientAsianWoman:     "/assets/ba-linda.jpg",
+  patientWhiteWoman:     "/assets/ba-deborah.jpg",
 
   // Implant type images — from marshcovedental.com/what-are-dental-implants/
-  implantSingle:      "/manus-storage/implant-single_d24aeea4.jpg",
-  implantFullArch:    "/manus-storage/implant-full-arch_f6a6d2ff.jpg",
-  implantXrayDoctors: "/manus-storage/implant-xray-doctors_33a37ce2.jpg",
+  implantSingle:      "/assets/implant-type-01.jpg",
+  implantFullArch:    "/assets/doctor-patient-after.jpg",
+  implantXrayDoctors: "/assets/doctor-with-patient.jpg",
 
   // Before/after photos — real Marsh Cove patients from marshcovedental.com/before-after-gallery/
-  baDeborah:  "/manus-storage/ba-deborah_cc38c6bb.jpg",
-  baJim:      "/manus-storage/ba-jim_334be8da.jpg",
-  baBob:      "/manus-storage/ba-bob_2ac18424.jpg",
-  baLinda:    "/manus-storage/ba-linda_0071c139.jpg",
-  baDonna:    "/manus-storage/ba-donna_9448d036.jpg",
-  baGrant:    "/manus-storage/ba-grant_50bbe684.jpg",
-  baSarah:    "/manus-storage/ba-sarah_09536ae8.jpg",
-  baAntonio:  "/manus-storage/ba-antonio_8cafdd91.jpg",
-  baClinton:  "/manus-storage/ba-clinton_9bd43a30.jpg",
-  baPaul:     "/manus-storage/ba-paul_9948f317.jpg",
-  baRandy:    "/manus-storage/ba-randy_fdbfeaf8.jpg",
-  baMatthew:  "/manus-storage/ba-matthew_acc82ad8.jpg",
+  baDeborah:  "/assets/ba-deborah.jpg",
+  baJim:      "/assets/ba-jim.jpg",
+  baBob:      "/assets/ba-bob.jpg",
+  baLinda:    "/assets/ba-linda.jpg",
+  baDonna:    "/assets/ba-donna.jpg",
+  baGrant:    "/assets/ba-grant.jpg",
+  baSarah:    "/assets/ba-corrado.jpg",
+  baAntonio:  "/assets/ba-david.jpg",
+  baClinton:  "/assets/ba-gerry.jpg",
+  baPaul:     "/assets/ba-matthew.jpg",
+  baRandy:    "/assets/ba-deborah.jpg",
+  baMatthew:  "/assets/ba-matthew.jpg",
 };
 
 // ─── SURVEY IDs ───────────────────────────────────────────────────────────────
