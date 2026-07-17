@@ -60,23 +60,25 @@ export default function SmileNowTY({ step2Text }: TYPageProps) {
 
   return (
     <div style={{ fontFamily: "Inter, sans-serif", backgroundColor: C.darkBg, minHeight: "100vh" }}>
-      {/* Nav */}
-      <nav style={{ backgroundColor: "rgba(13,43,43,0.96)", backdropFilter: "blur(8px)", borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "0 20px" }}>
-        <div style={{ maxWidth: "900px", margin: "0 auto", height: "56px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      {/* Top header — no nav bar; logo + phone centered */}
+      <div style={{ backgroundColor: C.darkBg, borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "28px 20px 22px", textAlign: "center" }}>
+        <div style={{ maxWidth: "600px", margin: "0 auto" }}>
           <img
-            src={ASSETS.logo}
+            src="/assets/logo-color.webp"
             alt="Marsh Cove Dental & Implant Center"
-            style={{ height: "30px", objectFit: "contain", filter: "brightness(0) invert(1)" }}
+            style={{ width: "175px", maxWidth: "55vw", objectFit: "contain", filter: "drop-shadow(0 2px 10px rgba(0,0,0,0.4))", display: "block", margin: "0 auto 18px" }}
           />
-          <a
-            href={PHONE_HREF}
-            style={{ color: "white", fontFamily: "Inter, sans-serif", fontSize: "0.85rem", fontWeight: 700, textDecoration: "none", display: "flex", alignItems: "center", gap: "6px" }}
-          >
-            <Phone size={14} style={{ color: C.teal }} />
-            {PHONE_DISPLAY}
-          </a>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", justifyContent: "center", alignItems: "center" }}>
+            <a
+              href={PHONE_HREF}
+              style={{ backgroundColor: "rgba(255,255,255,0.08)", color: "white", fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "1rem", letterSpacing: "0.02em", padding: "13px 24px", borderRadius: "8px", border: "2px solid rgba(255,255,255,0.35)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "8px", justifyContent: "center", backdropFilter: "blur(4px)", WebkitTapHighlightColor: "transparent" }}
+            >
+              <Phone size={16} style={{ color: C.teal, flexShrink: 0 }} />
+              {PHONE_DISPLAY}
+            </a>
+          </div>
         </div>
-      </nav>
+      </div>
 
       {/* Hero */}
       <section style={{ backgroundColor: C.darkBg, padding: "60px 20px 40px", textAlign: "center" }}>

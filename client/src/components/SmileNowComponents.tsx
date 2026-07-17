@@ -30,20 +30,23 @@ export const MOBILE_STYLES = `
     .sn-grid-3col { grid-template-columns: 1fr !important; gap: 20px !important; }
     .sn-doctor-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
     .sn-section { padding: 52px 16px !important; }
-    .sn-hero-content { padding: 100px 16px 48px !important; }
-    .sn-hero-logo { width: 200px !important; }
-    .sn-hero-h1 { font-size: 2rem !important; }
+    .sn-hero-content { padding: 48px 16px 48px !important; }
+    .sn-hero-logo { width: 180px !important; }
+    .sn-hero-h1 { font-size: 1.9rem !important; }
+    .sn-hero-phone-cta { flex-direction: column !important; align-items: stretch !important; gap: 14px !important; }
+    .sn-hero-phone-cta a, .sn-hero-phone-cta button { text-align: center !important; justify-content: center !important; width: 100% !important; box-sizing: border-box !important; }
     .sn-cta-row { flex-direction: column !important; align-items: stretch !important; }
     .sn-cta-row a, .sn-cta-row button { text-align: center !important; justify-content: center !important; }
-    /* sn-nav-phone: always visible — phone must be clickable on mobile */
     .sn-footer-inner { flex-direction: column !important; align-items: center !important; text-align: center !important; }
     .sn-doctor-photo { height: 300px !important; }
     .sn-ba-img { height: 220px !important; }
+    .sn-trust-badges { gap: 10px !important; flex-wrap: wrap !important; }
   }
   @media (max-width: 480px) {
     .sn-grid-4col { grid-template-columns: 1fr !important; }
-    .sn-trust-badges { gap: 10px !important; }
     .sn-trust-badges span { font-size: 0.72rem !important; }
+    .sn-hero-logo { width: 155px !important; }
+    .sn-hero-h1 { font-size: 1.65rem !important; }
   }
 `;
 import { Phone, CheckCircle, ChevronDown, ChevronUp, Shield, Star, Clock, Award, Users, MapPin } from "lucide-react";
@@ -153,31 +156,11 @@ export function SurveyEmbed({ surveyId, id }: { surveyId: string; id?: string })
   );
 }
 
-// ─── NAV BAR ──────────────────────────────────────────────────────────────────
-
+// ─── NAV BAR — REMOVED ────────────────────────────────────────────────────────
+// Nav header has been removed. Phone + CTA now live directly under the hero logo.
+// SmileNowNav is kept as a no-op export so LP pages don't need to be updated.
 export function SmileNowNav({ onCtaClick }: { onCtaClick: () => void }) {
-  return (
-    <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "rgba(13,43,43,0.96)", backdropFilter: "blur(8px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 20px", height: "56px", display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
-        {/* Right: phone + CTA — no logo in nav */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-          <a
-            href={PHONE_HREF}
-            style={{ color: "white", fontFamily: "Inter, sans-serif", fontSize: "0.82rem", fontWeight: 600, textDecoration: "none", display: "flex", alignItems: "center", gap: "6px", opacity: 0.9, whiteSpace: "nowrap" }}
-          >
-            <Phone size={14} style={{ color: C.teal }} />
-            {PHONE_DISPLAY}
-          </a>
-          <button
-            onClick={onCtaClick}
-            style={{ backgroundColor: C.green, color: "white", fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "0.78rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "9px 18px", borderRadius: "6px", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}
-          >
-            Free Consultation
-          </button>
-        </div>
-      </div>
-    </nav>
-  );
+  return null;
 }
 
 // ─── HERO SECTION ─────────────────────────────────────────────────────────────
@@ -213,65 +196,111 @@ export function SmileNowHero({
         <source src={ASSETS.heroVideo} type="video/mp4" />
       </video>
       {/* Dark overlay */}
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(13,43,43,0.60) 0%, rgba(13,43,43,0.80) 100%)" }} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(13,43,43,0.55) 0%, rgba(13,43,43,0.82) 100%)" }} />
 
-      {/* Content */}
-      <div className="sn-hero-content" style={{ position: "relative", zIndex: 5, textAlign: "center", padding: "120px 24px 64px", maxWidth: "820px", margin: "0 auto", width: "100%" }}>
+      {/* Content — no nav offset needed, starts from top */}
+      <div className="sn-hero-content" style={{ position: "relative", zIndex: 5, textAlign: "center", padding: "60px 24px 56px", maxWidth: "820px", margin: "0 auto", width: "100%" }}>
 
-        {/* Large color logo — top of hero, above location */}
-        <div style={{ marginBottom: "28px" }}>
+        {/* ── LOGO ── */}
+        <div style={{ marginBottom: "20px" }}>
           <img
             src="/assets/logo-color.webp"
             alt="Marsh Cove Dental & Implant Center"
             className="sn-hero-logo"
-            style={{ width: "195px", maxWidth: "60vw", objectFit: "contain", filter: "drop-shadow(0 2px 12px rgba(0,0,0,0.45))", display: "block", margin: "0 auto" }}
+            style={{ width: "195px", maxWidth: "58vw", objectFit: "contain", filter: "drop-shadow(0 2px 16px rgba(0,0,0,0.55))", display: "block", margin: "0 auto" }}
           />
         </div>
 
-        {/* Location line */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "28px" }}>
-          <div style={{ height: "1px", width: "40px", backgroundColor: C.teal, opacity: 0.6 }} />
-          <span style={{ fontFamily: "Inter, sans-serif", fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: C.teal }}>
-            {LOCATION}
-          </span>
-          <div style={{ height: "1px", width: "40px", backgroundColor: C.teal, opacity: 0.6 }} />
+        {/* ── PHONE + CTA — directly under logo ── */}
+        <div
+          className="sn-hero-phone-cta"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "16px",
+            justifyContent: "center",
+            alignItems: "center",
+            marginBottom: "32px",
+          }}
+        >
+          {/* Phone button */}
+          <a
+            href={PHONE_HREF}
+            style={{
+              backgroundColor: "rgba(255,255,255,0.10)",
+              color: "white",
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 700,
+              fontSize: "1.05rem",
+              letterSpacing: "0.03em",
+              padding: "15px 28px",
+              borderRadius: "8px",
+              border: "2px solid rgba(255,255,255,0.40)",
+              textDecoration: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+              justifyContent: "center",
+              backdropFilter: "blur(6px)",
+              minWidth: "210px",
+              WebkitTapHighlightColor: "transparent",
+            }}
+          >
+            <Phone size={18} style={{ color: C.teal, flexShrink: 0 }} />
+            {PHONE_DISPLAY}
+          </a>
+
+          {/* Free Consultation CTA */}
+          <button
+            onClick={onCtaClick}
+            style={{
+              backgroundColor: C.green,
+              color: "white",
+              fontFamily: "Inter, sans-serif",
+              fontWeight: 800,
+              fontSize: "1rem",
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              padding: "15px 32px",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer",
+              boxShadow: "0 4px 24px rgba(26,107,58,0.55)",
+              minWidth: "210px",
+              WebkitTapHighlightColor: "transparent",
+            }}
+          >
+            {ctaText}
+          </button>
         </div>
 
-        {/* H1 */}
-        <h1 className="sn-hero-h1" style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: "clamp(2.2rem, 6vw, 4rem)", color: "white", lineHeight: 1.1, margin: "0 0 16px", textTransform: "uppercase", letterSpacing: "-0.01em" }}>
+        {/* ── LOCATION DIVIDER ── */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "24px" }}>
+          <div style={{ height: "1px", width: "36px", backgroundColor: C.teal, opacity: 0.55 }} />
+          <span style={{ fontFamily: "Inter, sans-serif", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: C.teal }}>
+            {LOCATION}
+          </span>
+          <div style={{ height: "1px", width: "36px", backgroundColor: C.teal, opacity: 0.55 }} />
+        </div>
+
+        {/* ── H1 ── */}
+        <h1 className="sn-hero-h1" style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: "clamp(2rem, 5.5vw, 3.6rem)", color: "white", lineHeight: 1.1, margin: "0 0 16px", textTransform: "uppercase", letterSpacing: "-0.01em" }}>
           {headline}
         </h1>
 
-        {/* Subheadline */}
+        {/* ── SUBHEADLINE ── */}
         {subheadline && (
-          <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(0.95rem, 2vw, 1.15rem)", color: "rgba(255,255,255,0.80)", margin: "0 0 40px", lineHeight: 1.5 }}>
+          <p style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(0.92rem, 2vw, 1.1rem)", color: "rgba(255,255,255,0.78)", margin: "0 0 36px", lineHeight: 1.6 }}>
             {subheadline}
           </p>
         )}
 
-        {/* CTA Buttons — centered with generous spacing */}
-        <div className="sn-cta-row" style={{ display: "flex", flexWrap: "wrap", gap: "32px", justifyContent: "center", alignItems: "center", marginBottom: "40px" }}>
-          <button
-            onClick={onCtaClick}
-            style={{ backgroundColor: C.green, color: "white", fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: "1rem", letterSpacing: "0.06em", textTransform: "uppercase", padding: "18px 40px", borderRadius: "6px", border: "none", cursor: "pointer", boxShadow: "0 4px 24px rgba(26,107,58,0.5)", minWidth: "220px" }}
-          >
-            {ctaText}
-          </button>
-          <a
-            href={PHONE_HREF}
-            style={{ backgroundColor: "rgba(255,255,255,0.10)", color: "white", fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "1.05rem", letterSpacing: "0.04em", padding: "18px 32px", borderRadius: "6px", border: "2px solid rgba(255,255,255,0.45)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "10px", minWidth: "220px", justifyContent: "center", backdropFilter: "blur(4px)" }}
-          >
-            <Phone size={18} />
-            {PHONE_DISPLAY}
-          </a>
-        </div>
-
-        {/* Trust badges */}
-        <div className="sn-trust-badges" style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
+        {/* ── TRUST BADGES ── */}
+        <div className="sn-trust-badges" style={{ display: "flex", flexWrap: "wrap", gap: "14px", justifyContent: "center" }}>
           {trustBadges.map(badge => (
             <div key={badge} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-              <CheckCircle size={14} style={{ color: C.teal, flexShrink: 0 }} />
-              <span style={{ fontFamily: "Inter, sans-serif", fontSize: "0.78rem", fontWeight: 600, color: "rgba(255,255,255,0.85)" }}>{badge}</span>
+              <CheckCircle size={13} style={{ color: C.teal, flexShrink: 0 }} />
+              <span style={{ fontFamily: "Inter, sans-serif", fontSize: "0.76rem", fontWeight: 600, color: "rgba(255,255,255,0.85)" }}>{badge}</span>
             </div>
           ))}
         </div>
