@@ -30,7 +30,7 @@ export const MOBILE_STYLES = `
     .sn-grid-3col { grid-template-columns: 1fr !important; gap: 20px !important; }
     .sn-doctor-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
     .sn-section { padding: 52px 16px !important; }
-    .sn-hero-content { padding: 48px 16px 48px !important; }
+    .sn-hero-content { padding: 20px 16px 48px !important; }
     .sn-hero-logo { width: 180px !important; }
     .sn-hero-h1 { font-size: 1.9rem !important; }
     .sn-hero-phone-cta { flex-direction: column !important; align-items: stretch !important; gap: 14px !important; }
@@ -199,7 +199,7 @@ export function SmileNowHero({
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(13,43,43,0.55) 0%, rgba(13,43,43,0.82) 100%)" }} />
 
       {/* Content — no nav offset needed, starts from top */}
-      <div className="sn-hero-content" style={{ position: "relative", zIndex: 5, textAlign: "center", padding: "60px 24px 56px", maxWidth: "820px", margin: "0 auto", width: "100%" }}>
+      <div className="sn-hero-content" style={{ position: "relative", zIndex: 5, textAlign: "center", padding: "24px 24px 56px", maxWidth: "820px", margin: "0 auto", width: "100%" }}>
 
         {/* ── LOGO ── */}
         <div style={{ marginBottom: "20px" }}>
