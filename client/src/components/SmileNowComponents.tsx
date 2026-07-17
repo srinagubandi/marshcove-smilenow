@@ -158,14 +158,8 @@ export function SurveyEmbed({ surveyId, id }: { surveyId: string; id?: string })
 export function SmileNowNav({ onCtaClick }: { onCtaClick: () => void }) {
   return (
     <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, backgroundColor: "rgba(13,43,43,0.96)", backdropFilter: "blur(8px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 20px", height: "56px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        {/* Logo — white inverted in nav */}
-        <img
-          src={ASSETS.logo}
-          alt="Marsh Cove Dental & Implant Center"
-          style={{ height: "32px", objectFit: "contain", filter: "brightness(0) invert(1)" }}
-        />
-        {/* Right: phone + CTA */}
+      <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 20px", height: "56px", display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+        {/* Right: phone + CTA — no logo in nav */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <a
             href={PHONE_HREF}
@@ -231,7 +225,7 @@ export function SmileNowHero({
             src="/assets/logo-color.webp"
             alt="Marsh Cove Dental & Implant Center"
             className="sn-hero-logo"
-            style={{ width: "260px", maxWidth: "80vw", objectFit: "contain", filter: "drop-shadow(0 2px 12px rgba(0,0,0,0.45))" }}
+            style={{ width: "195px", maxWidth: "60vw", objectFit: "contain", filter: "drop-shadow(0 2px 12px rgba(0,0,0,0.45))", display: "block", margin: "0 auto" }}
           />
         </div>
 
