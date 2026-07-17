@@ -1,0 +1,382 @@
+/* =============================================================================
+   MARSH COVE DENTAL — GLOBAL DESIGN SYSTEM
+   Design Philosophy: Florida Coastal Luxury — warm, sun-drenched, upscale medical
+   
+   Color Palette:
+   - Primary Green:  #1E4620 (deep forest — authority, health, trust)
+   - Gold Accent:    #C4922A (warm amber — premium quality, CTAs)
+   - Background:     #FAFAF7 (warm cream — soft, non-clinical)
+   - Section Alt:    #F0F4EC (sage tint — visual rhythm)
+   - Dark Text:      #1A2E1B (near-black green tint)
+   - Light Text:     #FAFAF7 (cream white on dark backgrounds)
+   
+   Typography:
+   - Headlines: Playfair Display (serif, italic for emotional phrases)
+   - Body:      Lato (clean sans-serif, 16px/1.6)
+   
+   CTAs: Gold background (#C4922A), dark green text, rounded-full
+   Mobile: Single column, sticky call bar, 48px+ tap targets
+   ============================================================================= */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ── Marsh Cove Brand Tokens ── */
+  --color-marsh-green:       oklch(0.28 0.07 145);   /* #1E4620 deep forest green */
+  --color-marsh-green-dark:  oklch(0.20 0.06 145);   /* darker green for hover */
+  --color-marsh-gold:        oklch(0.65 0.12 75);    /* #C4922A warm amber gold */
+  --color-marsh-gold-light:  oklch(0.72 0.10 75);    /* lighter gold for hover */
+  --color-marsh-cream:       oklch(0.99 0.005 95);   /* #FAFAF7 warm cream */
+  --color-marsh-sage:        oklch(0.95 0.015 140);  /* #F0F4EC sage tint */
+  --color-marsh-dark-text:   oklch(0.18 0.05 145);   /* #1A2E1B near-black */
+  --color-marsh-red:         oklch(0.55 0.22 25);    /* urgency red */
+}
+
+:root {
+  /* Override primary to Marsh Cove green */
+  --primary: oklch(0.28 0.07 145);
+  --primary-foreground: oklch(0.99 0.005 95);
+  --radius: 0.5rem;
+  --background: oklch(0.99 0.005 95);
+  --foreground: oklch(0.18 0.05 145);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.05 145);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.05 145);
+  --secondary: oklch(0.95 0.015 140);
+  --secondary-foreground: oklch(0.28 0.07 145);
+  --muted: oklch(0.95 0.015 140);
+  --muted-foreground: oklch(0.50 0.03 145);
+  --accent: oklch(0.65 0.12 75);
+  --accent-foreground: oklch(0.18 0.05 145);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.88 0.01 140);
+  --input: oklch(0.88 0.01 140);
+  --ring: oklch(0.65 0.12 75);
+  --sidebar: oklch(0.28 0.07 145);
+  --sidebar-foreground: oklch(0.99 0.005 95);
+  --sidebar-primary: oklch(0.65 0.12 75);
+  --sidebar-primary-foreground: oklch(0.18 0.05 145);
+  --sidebar-accent: oklch(0.35 0.07 145);
+  --sidebar-accent-foreground: oklch(0.99 0.005 95);
+  --sidebar-border: oklch(0.35 0.07 145);
+  --sidebar-ring: oklch(0.65 0.12 75);
+  --chart-1: oklch(0.65 0.12 75);
+  --chart-2: oklch(0.28 0.07 145);
+  --chart-3: oklch(0.50 0.10 145);
+  --chart-4: oklch(0.75 0.08 75);
+  --chart-5: oklch(0.40 0.07 145);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lato', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* ── Marsh Cove Utility Classes ── */
+
+  /* Gold CTA button — primary conversion action */
+  .btn-gold {
+    background-color: var(--color-marsh-gold);
+    color: var(--color-marsh-dark-text);
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.875rem 2rem;
+    border-radius: 9999px;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(196, 146, 42, 0.35);
+    min-height: 52px;
+    cursor: pointer;
+  }
+  .btn-gold:hover {
+    background-color: var(--color-marsh-gold-light);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(196, 146, 42, 0.45);
+  }
+  .btn-gold:active {
+    transform: translateY(0);
+  }
+
+  /* Green CTA button — secondary action */
+  .btn-green {
+    background-color: var(--color-marsh-green);
+    color: var(--color-marsh-cream);
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.875rem 2rem;
+    border-radius: 9999px;
+    border: 2px solid var(--color-marsh-gold);
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    min-height: 52px;
+    cursor: pointer;
+  }
+  .btn-green:hover {
+    background-color: var(--color-marsh-green-dark);
+    transform: translateY(-1px);
+  }
+
+  /* Section with dark green background */
+  .section-green {
+    background-color: var(--color-marsh-green);
+    color: var(--color-marsh-cream);
+  }
+
+  /* Section with cream background */
+  .section-cream {
+    background-color: var(--color-marsh-cream);
+    color: var(--color-marsh-dark-text);
+  }
+
+  /* Section with sage tint background */
+  .section-sage {
+    background-color: var(--color-marsh-sage);
+    color: var(--color-marsh-dark-text);
+  }
+
+  /* Gold italic accent text (Playfair Display italic) */
+  .text-gold-italic {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--color-marsh-gold);
+  }
+
+  /* Gold underline decoration */
+  .gold-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .gold-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-marsh-gold);
+  }
+
+  /* Sticky call bar — height is controlled by CSS variable so all pages can offset correctly */
+  :root {
+    --sticky-bar-height: 56px;
+  }
+  .sticky-call-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--sticky-bar-height);
+    background-color: var(--color-marsh-green);
+    color: var(--color-marsh-cream);
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  /* Page wrapper: always push content below the sticky bar */
+  .page-wrapper {
+    padding-top: var(--sticky-bar-height);
+  }
+
+  /* Form card floating style */
+  .form-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 8px 40px rgba(30, 70, 32, 0.15);
+    padding: 1.5rem;
+    border-top: 4px solid var(--color-marsh-gold);
+  }
+
+  /* Trust badge row */
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-marsh-dark-text);
+  }
+
+  /* Star rating display */
+  .star-rating {
+    color: #F59E0B;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* Urgency/scarcity badge */
+  .urgency-badge {
+    background-color: var(--color-marsh-red);
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    display: inline-block;
+  }
+
+  /* Scroll-triggered fade-up animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Pulse animation for CTA buttons */
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 4px 14px rgba(196, 146, 42, 0.35); }
+    50% { box-shadow: 0 4px 24px rgba(196, 146, 42, 0.6); }
+  }
+  .btn-gold-pulse {
+    animation: pulse-gold 2.5s ease-in-out infinite;
+  }
+
+  /* Step number circle */
+  .step-circle {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    background-color: var(--color-marsh-gold);
+    color: var(--color-marsh-dark-text);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Divider with gold accent */
+  .gold-divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-marsh-gold);
+    margin: 0.75rem auto;
+    border-radius: 9999px;
+  }
+
+  /* ── NEW LANDING COMPONENTS — FIGMA PROPEL DESIGN SYSTEM ── */
+  .n-fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .n-fade-up.n-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

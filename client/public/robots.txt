@@ -1,0 +1,25 @@
+# robots.txt — Marsh Cove Dental & Implant Center
+# https://www.dentistimplant.clinic
+
+User-agent: *
+
+# Block internal/dev pages
+Disallow: /404
+Disallow: /thank-you-dr-titov
+Disallow: /thank-you-dr-titov-google
+Disallow: /thank-you-dr-titov-meta
+
+# Allow all public landing pages
+Allow: /
+Allow: /free-consultation
+Allow: /affordable-implants
+Allow: /same-day-implants
+Allow: /free-consultation-g
+Allow: /affordable-implants-g
+Allow: /affordable-implants-v2
+Allow: /same-day-implants-g
+Allow: /facebook-kindle
+Allow: /terms
+Allow: /privacy
+
+Sitemap: https://www.dentistimplant.clinic/sitemap.xml

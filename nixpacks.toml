@@ -1,0 +1,14 @@
+# Nixpacks configuration for Railway deployment
+# Uses npm to avoid pnpm/corepack activation issues in Railway build environment
+
+[phases.setup]
+nixPkgs = ["nodejs_22"]
+
+[phases.install]
+cmds = ["npm install --legacy-peer-deps"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "node dist/index.js"
