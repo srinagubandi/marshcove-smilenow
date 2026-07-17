@@ -37,7 +37,7 @@ export default function LPMetaSameDay() {
     "Full zirconia or PMMA bridge placed same day",
     "4 to 6 implants for a secure, permanent foundation",
     "No more loose dentures or painful extractions",
-    "5-Year warranty on full-arch treatments",
+    "99% implant success rate",
   ];
 
   return (

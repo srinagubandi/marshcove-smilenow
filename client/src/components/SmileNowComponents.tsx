@@ -178,7 +178,6 @@ export function SmileNowHero({
     "5-Star Google Rating",
     "Implant Specialist",
     "Same-Day Available",
-    "5-Year Warranty",
     "$0 Down Financing",
   ];
 
@@ -358,16 +357,7 @@ export function SmileNowLifeTransformed({ onCtaClick }: { onCtaClick: () => void
             Get Pricing
           </button>
 
-          {/* Warranty callout */}
-          <div style={{ marginTop: "28px", backgroundColor: C.lightBgAlt, borderRadius: "10px", padding: "16px 20px", border: `1px solid ${C.borderLight}`, display: "flex", gap: "14px", alignItems: "flex-start" }}>
-            <Shield size={24} style={{ color: C.green, flexShrink: 0, marginTop: "2px" }} />
-            <div>
-              <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "0.9rem", color: C.textLight, margin: "0 0 4px" }}>We Stand Behind Our Work — 5-Year Warranty</p>
-              <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.82rem", color: C.textMuted, lineHeight: 1.6, margin: 0 }}>
-                We offer a 5-Year Warranty on all Full Mouth Implant Treatments with a Permanent Zirconia Bridge. This gives you peace of mind knowing you are getting great value and a treatment that will stand the test of time. <em>Terms and conditions apply.</em>
-              </p>
-            </div>
-          </div>
+
         </div>
 
         {/* Right: patient photo */}
@@ -600,7 +590,7 @@ export function SmileNowBeforeAfter({ onCtaClick }: { onCtaClick: () => void }) 
 // ─── DOCTOR SECTION ───────────────────────────────────────────────────────────
 
 export function SmileNowDoctor({ onCtaClick }: { onCtaClick: () => void }) {
-  const badges = ["Implant Specialist", "Advanced 3D Imaging", "Same-Day Procedures", "5-Year Warranty"];
+  const badges = ["Implant Specialist", "Advanced 3D Imaging", "Same-Day Procedures", "ICOI Fellow"];
 
   return (
     <section style={{ backgroundColor: C.lightBg, padding: "80px 20px" }}>
@@ -760,7 +750,7 @@ const FAQS = [
   },
   {
     q: "How long do dental implants last?",
-    a: "With proper care, implants can last a lifetime. We back our full-arch treatments with a 5-Year Warranty on the permanent zirconia bridge.",
+    a: "With proper care, dental implants can last a lifetime. Dr. Titov has placed over 2,000 implants with a 99% success rate, and proper home and professional care helps ensure their longevity.",
   },
   {
     q: "Is the procedure painful?",
@@ -816,7 +806,7 @@ export function SmileNowFAQ() {
 // ─── FINAL CTA SECTION ────────────────────────────────────────────────────────
 
 export function SmileNowFinalCTA({ headline, ctaText, onCtaClick }: { headline: string; ctaText: string; onCtaClick: () => void }) {
-  const badges = ["Free Consultation", "No Obligation", "Same-Day Available", "5-Year Warranty", LOCATION];
+  const badges = ["Free Consultation", "No Obligation", "Same-Day Available", "$0 Down Financing", LOCATION];
 
   return (
     <section style={{ backgroundColor: C.darkBgAlt, padding: "80px 20px", textAlign: "center" }}>

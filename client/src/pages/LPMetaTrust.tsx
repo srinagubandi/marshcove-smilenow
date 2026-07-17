@@ -37,7 +37,7 @@ export default function LPMetaTrust() {
     "University of Florida College of Dentistry trained",
     "2,000+ successful implant procedures",
     "Husband-and-wife team with a patient-first philosophy",
-    "5-Year warranty on full-arch treatments",
+    "99% implant success rate",
   ];
 
   return (

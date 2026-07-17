@@ -37,7 +37,7 @@ export default function LPMetaAffordable() {
     "Full zirconia bridge included",
     "4 to 6 high quality dental implants",
     "Teeth delivered within 24 hours",
-    "5-Year warranty on full-arch treatments",
+    "99% implant success rate",
   ];
 
   return (
