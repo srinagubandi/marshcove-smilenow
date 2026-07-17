@@ -60,9 +60,10 @@ export const ASSETS = {
   patientWhiteWoman:     "/assets/ba-deborah.jpg",
 
   // Implant type images — from marshcovedental.com/what-are-dental-implants/
-  implantSingle:      "/assets/implant-type-01.jpg",
-  implantFullArch:    "/assets/doctor-patient-after.jpg",
-  implantXrayDoctors: "/assets/doctor-with-patient.jpg",
+  implantSingle:      "/assets/implant-single.jpg",
+  implantBridge:      "/assets/implant-bridge.jpg",
+  implantDentures:    "/assets/implant-dentures.jpg",
+  implantFullArch:    "/assets/implant-full-mouth.jpg",
 
   // Before/after photos — real Marsh Cove patients from marshcovedental.com/before-after-gallery/
   baDeborah:  "/assets/ba-deborah.jpg",
@@ -496,28 +497,28 @@ export function SmileNowTreatmentOptions({ onCtaClick }: { onCtaClick: () => voi
   const options = [
     {
       img: ASSETS.implantSingle,
-      alt: "Patient Angie after single dental implant at Marsh Cove Dental",
+      alt: "Single dental implant model — titanium post and crown",
       title: "Single Dental Implant",
       desc: "Replace one missing tooth with a titanium post and natural-looking crown. Dental implants have a success rate as high as 99% when placed by Dr. Titov.",
       popular: false,
     },
     {
-      img: ASSETS.implantXrayDoctors,
-      alt: "Drs. Titov reviewing full mouth dental implant X-ray",
+      img: ASSETS.implantBridge,
+      alt: "Implant supported bridge illustration — two implants supporting a bridge",
       title: "Implant Supported Bridge",
       desc: "Replace several missing teeth without modifying healthy adjacent teeth. Preserves bone and prevents the shifting that traditional bridges allow.",
       popular: false,
     },
     {
       img: ASSETS.implantFullArch,
-      alt: "Full mouth dental implants full arch result",
+      alt: "Full mouth dental implants — All-on-4 full arch illustration",
       title: "Full Mouth Dental Implants",
       desc: "Fully restore dental function and aesthetics with All-on-4 to 6, All-on-X, or Teeth Today. Same-day available. The only solution that prevents bone loss.",
       popular: true,
     },
     {
-      img: ASSETS.doctorKathleen,
-      alt: "Dr. Titov with patient Kathleen after full mouth dental implants",
+      img: ASSETS.implantDentures,
+      alt: "Implant supported dentures illustration — snap-in denture over implants",
       title: "Implant Supported Dentures",
       desc: "Snap-in dentures stabilized over 2 to 4 implants eliminate slipping and discomfort. Prevents the 25% bone loss that occurs in the first year after tooth loss.",
       popular: false,
