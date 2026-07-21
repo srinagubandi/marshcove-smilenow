@@ -25,12 +25,13 @@ import { useState, useEffect } from "react";
 // Injected once via a <style> tag in the root layout
 export const MOBILE_STYLES = `
   @media (max-width: 768px) {
-    .sn-grid-2col { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .sn-grid-2col { grid-template-columns: 1fr !important; gap: 32px !important; display: block !important; }
+    .sn-grid-2col > * + * { margin-top: 32px !important; }
     .sn-grid-4col { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
     .sn-grid-3col { grid-template-columns: 1fr !important; gap: 20px !important; }
     .sn-doctor-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
     .sn-section { padding: 52px 16px !important; }
-    .sn-hero-content { padding: 20px 16px 48px !important; }
+    .sn-hero-content { padding: 12px 16px 40px !important; }
     .sn-hero-logo { width: 180px !important; }
     .sn-hero-h1 { font-size: 1.9rem !important; }
     .sn-hero-phone-cta { flex-direction: column !important; align-items: stretch !important; gap: 14px !important; }
