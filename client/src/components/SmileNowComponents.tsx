@@ -113,11 +113,11 @@ export const ASSETS = {
 // Marsh Cove GHL LeadConnector survey IDs
 
 export const SURVEYS = {
-  googleFreeConsult: "mKWOx0AwEPzswPS0x7mn",   // Google Search — Free Consultation
-  googlePmax:        "mKWOx0AwEPzswPS0x7mn",   // Google PMAX
-  metaAffordable:    "IxOrkIagtZmPfIDvTvnx",   // Meta — Price / Affordable Implants
-  metaSameDay:       "z2Fo0JJOtLK5R7HD5GM5",   // Meta — Symptomatic / Same-Day
-  metaTrust:         "jT3Ik2Cp2pTsEF6tXVGb",   // Meta — Trust + Experience
+  googleFreeConsult: "mKWOx0AwEPzswPS0x7mn",   // Google Search — Free Consultation  (fixasmileguide.com/marshcove/price/free-consultation-g)
+  googlePmax:        "2sHAhWSkH2pX8Q9io2Qq",   // Google PMAX                         (fixasmileguide.com/marshcove/price/google-pmax)
+  metaAffordable:    "IxOrkIagtZmPfIDvTvnx",   // Meta — Price / Affordable Implants  (fixasmileguide.com/marshcove/price/affordable-implants)
+  metaSameDay:       "z2Fo0JJOtLK5R7HD5GM5",   // Meta — Symptomatic / Same-Day       (fixasmileguide.com/marshcove/price/same-day-implants)
+  metaTrust:         "jT3Ik2Cp2pTsEF6tXVGb",   // Meta — Trust + Experience           (fixasmileguide.com/marshcove/price/free-consultation)
 };
 
 // ─── DESIGN TOKENS ────────────────────────────────────────────────────────────
